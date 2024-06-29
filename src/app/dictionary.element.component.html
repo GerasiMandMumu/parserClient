@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup" novalidate (ngSubmit)="submit()">
+    <div formArrayName="properties">
+            @for(property of getFormsControls()["controls"]; track property){            
+                <div>
+                    <label for="prop{{$index}}">{{propertiesArray[$index]}}</label><br>
+                    <input id="prop{{$index}}" [formControlName]="$index" />                          
+                </div>
+            }            
+    </div>    
+    <button type="button" (click)="addProperties()">Сохранить элемент</button>
+</form>

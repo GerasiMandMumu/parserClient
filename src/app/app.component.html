@@ -1,0 +1,7 @@
+<div *ngIf="showFileLoad">
+    <file-upload (filledElements)="eventHandler($event)"></file-upload>
+</div>
+
+<div *ngIf="showProps">
+    <elements-group [propertiesArray]="propertiesArray"></elements-group>
+</div>

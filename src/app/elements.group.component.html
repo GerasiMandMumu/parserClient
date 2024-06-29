@@ -1,0 +1,14 @@
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+    <div formArrayName="formElements">
+    @for(element of getFormsControls()["controls"]; track $index){    
+        <div>Элемент</div>
+        <dictionary-element 
+        [propertiesArray]="propertiesArray" 
+        (filledElements)="eventHandler($event)"
+        (isCreated)="hideHandler($event)">
+        </dictionary-element>    
+    }
+    </div>       
+    <button (click)="addElement()">Добавить элемент</button>
+    <button (click)="sendElements()">Отправить созданные элементы на сервер</button>
+</form>
